@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+
+/* Home Components */
+
+.hero {
+  background: url(./Assects/images/hero_bg_5_1.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.overlay {
+  background: url(./Assects/images/hero_overlay_5.png) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.course-bg-top {
+  background: url(./Assects/images/course-slider.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.course-bg-top::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #141517;
+  opacity: 0.6;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.tooltip-custom {
+  position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate(0px, 7.5px);
+}
+
+.tooltip-arrow-custom {
+  position: absolute;
+  left: 0px;
+  transform: translate(0px, 0px);
+}
