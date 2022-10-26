@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
+
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../UserContext/AuthProvider";
 
 const Register = () => {
-  const { registerUser } = useContext(AuthContext);
+  // const { userRegister, updateUserProfile, verifyEmail } =
+  //   useContext(AuthContext);
+  const { userLogin } = useContext(AuthContext);
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,13 +16,19 @@ const Register = () => {
     const fullName = form.fullName.value;
     const email = form.email.value;
     const photoURL = form.photoURL.value;
-    const password = form.password.value;
+    const password = form.pass.value;
+    console.log(fullName, email, photoURL, password);
 
     //   function for user create
-    registerUser(email, password)
+    userLogin(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        // setError("");
+        // form.reset();
+        // handleUpdateProfile(name, photoURL);
+        // handleEmailVerify();
+        // toast.success('Please verify your email address')
       })
       .catch((err) => console.error(err));
   };
@@ -77,10 +88,10 @@ const Register = () => {
             <div className=" relative ">
               <input
                 type="password"
-                id="create-account-email"
+                id="pass"
                 className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#0D5EF4] focus:border-transparent"
-                placeholder="Password"
-                name="password"
+                placeholder=" Password"
+                name="pass"
               />
             </div>
           </div>

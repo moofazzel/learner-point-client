@@ -1,12 +1,30 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../UserContext/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, userLoginWithEmailPass } = useContext(AuthContext);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(email, password);
+    userLoginWithEmailPass(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  };
+
   const provider = new GoogleAuthProvider();
-  const handleGoogleSignin = () => {
+  const handleGoogleLogin = () => {
     googleSignIn(provider)
       .then((result) => {
         const user = result.user;
@@ -38,7 +56,7 @@ const Login = () => {
           Facebook
         </button>
         <button
-          onClick={handleGoogleSignin}
+          onClick={handleGoogleLogin}
           type="button"
           className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
         >
@@ -56,7 +74,7 @@ const Login = () => {
         </button>
       </div>
       <div className="mt-8">
-        <form action="#">
+        <form action="#" onSubmit={handleLogin}>
           <div className="flex flex-col mb-2">
             <div className="flex relative ">
               <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -72,9 +90,10 @@ const Login = () => {
               </span>
               <input
                 type="text"
-                 id="email"
+                id="email"
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#0D5EF4] focus:border-transparent"
                 placeholder="Your email"
+                name="email"
               />
             </div>
           </div>
@@ -96,6 +115,7 @@ const Login = () => {
                 id="password"
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-[#0D5EF4] focus:border-transparent"
                 placeholder="Your password"
+                name="password"
               />
             </div>
           </div>

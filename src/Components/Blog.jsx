@@ -40,7 +40,7 @@ const Blog = () => {
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
                 Refs provide a way to access DOM nodes or React elements created
-                in the render method. In the typical React dataflow, props are
+                in the -RENDER method. In the typical React dataflow, props are
                 the only way that parent components interact with their
                 children. To modify a child, you re-render it with new props.
                 However, there are a few cases where you need to imperatively

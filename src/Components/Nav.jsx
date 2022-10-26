@@ -1,9 +1,20 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../logo.svg";
+import { AuthContext } from "../UserContext/AuthProvider";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { user, logout } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {})
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="bg-[#0D5EF4] text-white font-semibold shadow-sm px-4 py-5 mx-auto md:px-24 lg:px-8">
@@ -124,18 +135,30 @@ export const Nav = () => {
         </ul>
 
         <div className="flex gap-3 items-center">
-          <ul className="flex gap-3 items-center">
-            <li className="flex leading-9  ">
-              <NavLink to={"login"} className="">
-                Login
-              </NavLink>
-            </li>
-            <li className="flex leading-9  ">
-              <NavLink to={"register"} className="">
-                Sign Up
-              </NavLink>
-            </li>
-          </ul>
+          {user?.uid ? (
+            <>
+              <span>{user?.email}</span>
+              <li className="flex leading-9  ">
+                <NavLink onClick={handleLogout} className="">
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <ul className="flex gap-3 items-center">
+              <span>{user?.email} </span>
+              <li className="flex leading-9  ">
+                <NavLink to={"login"} className="">
+                  Login
+                </NavLink>
+              </li>
+              <li className="flex leading-9  ">
+                <NavLink to={"register"} className="">
+                  Sign Up
+                </NavLink>
+              </li>
+            </ul>
+          )}
 
           {/* Toggle Button */}
           <div className="mt-2 hidden lg:block">
