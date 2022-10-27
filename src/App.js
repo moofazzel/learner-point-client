@@ -9,6 +9,7 @@ import Home from "./Components/Home";
 import Main from "./Layouts/Main";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import SinglePage from "./Components/SinglePage";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,8 +25,15 @@ function App() {
           path: "courses",
           element: <Courses />,
           loader: () => {
-            return fetch('http://localhost:5000/courses')
-          }
+            return fetch("http://localhost:5000/courses");
+          },
+        },
+        {
+          path: "course/:id",
+          element: <SinglePage />,
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/courses/${params.id}`);
+          },
         },
         {
           path: "faq",
@@ -46,9 +54,9 @@ function App() {
       ],
     },
     {
-      path: '*',
-      element:<Error/>
-}
+      path: "*",
+      element: <Error />,
+    },
   ]);
   return (
     <div className="bg-slate-50 h-screen">

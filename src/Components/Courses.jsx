@@ -5,8 +5,6 @@ import SingleCourse from "./SingleCourse";
 
 const Courses = () => {
   const topics = useLoaderData();
-  // const {details,image_url,price,title} = topic;
-  // console.log(details);
   return (
     <div>
       <div className="course-bg-top px-4 py-10 mx-auto md:px-24 lg:px-8 z-10 mb-5">
@@ -15,7 +13,7 @@ const Courses = () => {
         </h2>
       </div>
 
-      <div className="flex gap-5 mx-10">
+      <div className="flex gap-5 mx-10  my-14">
         <Aside></Aside>
 
         <div className="flex flex-wrap gap-4 justify-center">

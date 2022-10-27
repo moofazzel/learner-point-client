@@ -8,7 +8,6 @@ export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
 
   const handleLogout = () => {
     logout()
@@ -18,7 +17,7 @@ export const Nav = () => {
 
   return (
     <div className="bg-[#0D5EF4] text-white font-semibold shadow-sm px-4 py-5 mx-auto md:px-24 lg:px-8">
-      <div className="relative flex justify-between items-center grid-cols-2 lg:grid-cols-3">
+      <div className=" container mx-auto relative flex justify-between items-center grid-cols-2 lg:grid-cols-3">
         <div className="flex items-center gap-2">
           <div className="lg:hidden">
             <button
