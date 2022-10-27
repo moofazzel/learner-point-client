@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RightSideBar = ({image_url,title}) => {
+const RightSideBar = ({image_url,title,id}) => {
     return (
         <div className='min-w-[350px] flex flex-col justify-center items-center h-full'>
             <img src={image_url} alt="" />
             <h3 className='my-10'> {title} </h3>
             <Link
-            to={'/login'}
+            to={`../checkout/${id}`}
             className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 darkk:bg-blue-600 darkk:hover:bg-blue-700 darkk:focus:ring-blue-800"
           >
             Get Premium Access

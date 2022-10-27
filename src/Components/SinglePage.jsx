@@ -12,7 +12,9 @@ const SinglePage = () => {
     love,
     lesson,
     image_url,
-  } = useLoaderData();
+    id
+    } = useLoaderData();
+    console.log(title);
   return (
     <div className="container py-16 mx-auto lg:flex gap-10">
       <div className="bg-white-200 px-10 pb-8 rounded-lg">
@@ -53,7 +55,7 @@ const SinglePage = () => {
         </div>
       </div>
       <div className="bg-white-200 px-10 pb-8 rounded-lg">
-        <RightSideBar image_url={image_url} title={title} />
+        <RightSideBar image_url={image_url} title={title} id={id} />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import Login from "./Components/Login";
 import Register from "./Components/Register";
 import SinglePage from "./Components/SinglePage";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import CheckOut from "./Components/CheckOut";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,15 +31,34 @@ function App() {
           },
         },
         {
-          path: "course/:id",
-          element: (
-            <PrivateRoutes>
-              <SinglePage />
-            </PrivateRoutes>
-          ),
+          path: "category/:id",
+          element: <Courses />,
           loader: ({ params }) => {
             return fetch(`http://localhost:5000/courses/${params.id}`);
           },
+        },
+        {
+          path: "checkout/:id",
+          element: (
+            <PrivateRoutes>
+              <CheckOut />
+            </PrivateRoutes>
+          ),
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/checkout/${params.id}`);
+          },
+        },
+        {
+          path: "course/:id",
+          element: <SinglePage />,
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/courses/${params.id}`);
+          },
+        },
+        
+        {
+          path: "checkout",
+          element: <CheckOut />,
         },
         {
           path: "faq",
