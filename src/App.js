@@ -23,6 +23,9 @@ function App() {
         {
           path: "courses",
           element: <Courses />,
+          loader: () => {
+            return fetch('http://localhost:5000/courses')
+          }
         },
         {
           path: "faq",
