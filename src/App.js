@@ -10,6 +10,7 @@ import Main from "./Layouts/Main";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import SinglePage from "./Components/SinglePage";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,7 +31,11 @@ function App() {
         },
         {
           path: "course/:id",
-          element: <SinglePage />,
+          element: (
+            <PrivateRoutes>
+              <SinglePage />
+            </PrivateRoutes>
+          ),
           loader: ({ params }) => {
             return fetch(`http://localhost:5000/courses/${params.id}`);
           },

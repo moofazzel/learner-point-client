@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <>
       <footer className="bg-white dark:bg-gray-900">
         <div className="container p-6 mx-auto">
           <div className="lg:flex">
@@ -14,7 +14,7 @@ const Footer = () => {
                     href="#"
                     className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
                   >
-                    Brand
+                    LEARNER POINT
                   </Link>
                 </div>
 
@@ -170,7 +170,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 };
 

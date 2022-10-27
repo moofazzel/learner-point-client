@@ -1,14 +1,15 @@
 // import React, { useContext } from "react";
 
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../UserContext/AuthProvider";
 
 const Register = () => {
   // const { userRegister, updateUserProfile, verifyEmail } =
   //   useContext(AuthContext);
   const { userLogin } = useContext(AuthContext);
-  
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,11 +25,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // setError("");
-        // form.reset();
-        // handleUpdateProfile(name, photoURL);
-        // handleEmailVerify();
-        // toast.success('Please verify your email address')
+        navigate("/");
       })
       .catch((err) => console.error(err));
   };
