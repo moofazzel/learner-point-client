@@ -28,14 +28,18 @@ function App() {
           path: "courses",
           element: <Courses />,
           loader: () => {
-            return fetch("http://localhost:5000/courses");
+            return fetch(
+              "https://learning-platform-client-side-server.vercel.app/courses"
+            );
           },
         },
         {
           path: "category/:id",
           element: <Courses />,
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/category/${params.id}`);
+            return fetch(
+              `https://learning-platform-client-side-server.vercel.app/category/${params.id}`
+            );
           },
         },
         {
@@ -46,17 +50,21 @@ function App() {
             </PrivateRoutes>
           ),
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/checkout/${params.id}`);
+            return fetch(
+              `https://learning-platform-client-side-server.vercel.app/checkout/${params.id}`
+            );
           },
         },
         {
           path: "course/:id",
           element: <SinglePage />,
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/courses/${params.id}`);
+            return fetch(
+              `https://learning-platform-client-side-server.vercel.app/courses/${params.id}`
+            );
           },
         },
-        
+
         {
           path: "checkout",
           element: <CheckOut />,

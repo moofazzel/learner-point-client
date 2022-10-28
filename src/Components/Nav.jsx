@@ -108,8 +108,7 @@ export const Nav = () => {
             )}
           </div>
           <Link to={"/"}>
-            <img className="w-60 logo" src="" alt="" />
-            <p className="text-xl">LEARNER POINT</p>
+            <p className="sm:text-xl">LEARNER POINT</p>
           </Link>
         </div>
         <ul className="items-center hidden space-x-8 lg:flex">
@@ -136,20 +135,20 @@ export const Nav = () => {
         <div className="flex gap-3 items-center">
           {user?.uid ? (
             <>
-              <div className="dropdown">
+              <div className="dropdown dropdown-end">
                 <img
                   tabIndex={0}
-                  className="w-14 h-14 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src={user?.photoURL}
                   alt=""
                 />
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-lg w-52 text-black text-center"
                 >
-                  <span>{user?.displayName}</span>
+                  <h3>{user?.displayName}</h3>
                   <li className="flex leading-9  ">
-                    <NavLink onClick={handleLogout} className="">
+                    <NavLink onClick={handleLogout} className=" py-1 mt-3 text-center">
                       Logout
                     </NavLink>
                   </li>

@@ -5,7 +5,9 @@ import RightSideBar from "./RightSideBar";
 const SinglePage = () => {
 
   const handlePdfDownload = () => {
-    
+    // html2canvas(document.getElementById('course')).then(canvas => {
+    //   const imgData =canvas.to
+    // })
   }
 
   const {
@@ -21,7 +23,7 @@ const SinglePage = () => {
     } = useLoaderData();
     console.log(title);
   return (
-    <div className="container py-16 mx-auto lg:flex gap-10">
+    <div id="course" className="container py-16 mx-auto lg:flex gap-10">
       <div className="bg-white-200 px-10 pb-8 rounded-lg">
         <h2 className="text-5xl font-bold text-slate-600 mt-5">{title} </h2>
         <hr className="my-16" />

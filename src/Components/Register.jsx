@@ -7,7 +7,7 @@ import { AuthContext } from "../UserContext/AuthProvider";
 const Register = () => {
   // const { userRegister, updateUserProfile, verifyEmail } =
   //   useContext(AuthContext);
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin, UpdateNamePhotoURL } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -19,6 +19,8 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.pass.value;
     console.log(fullName, email, photoURL, password);
+
+    UpdateNamePhotoURL()
 
     //   function for user create
     userLogin(email, password)

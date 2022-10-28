@@ -6,11 +6,10 @@ import { Link, useLoaderData } from "react-router-dom";
 const Aside = ({ topics }) => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://learning-platform-client-side-server.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, []);
-
 
   const { category_id } = topics;
   // const category = useLoaderData();
