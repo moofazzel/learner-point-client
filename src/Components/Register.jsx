@@ -18,9 +18,7 @@ const Register = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.pass.value;
-    console.log(fullName, email, photoURL, password);
-
-    UpdateNamePhotoURL()
+    // console.log(fullName, email, photoURL, password);
 
     //   function for user create
     userLogin(email, password)
@@ -28,7 +26,19 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         navigate("/");
+        form.reset();
+        handleUpdateUserProfile(fullName, photoURL);
       })
+      .catch((err) => console.error(err));
+  };
+
+  const handleUpdateUserProfile = (fullName, photoURL) => {
+    const profile = {
+      displayName: fullName,
+      photoURL: photoURL,
+    };
+    UpdateNamePhotoURL(profile)
+      .then(() => {})
       .catch((err) => console.error(err));
   };
 

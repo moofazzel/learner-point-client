@@ -22,6 +22,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         navigate(from, { replace: true });
+        form.reset()
+
       })
       .then((err) => {
         console.log(err);
