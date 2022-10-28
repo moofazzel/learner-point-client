@@ -10,7 +10,7 @@ const SingleCourse = () => {
       {courses.map((course) => {
         const { id, details, image_url, price, title } = course;
         return (
-          <div className="relative max-w-xs bg-white rounded-lg border border-gray-200 shadow-md darkk:bg-gray-800 darkk:border-gray-700">
+          <div className="relative w-full md:max-w-xs bg-white rounded-lg border border-gray-200 shadow-md darkk:bg-gray-800 darkk:border-gray-700">
             <span className="absolute top-3 right-5 text-white font-semibold bg-red-500 px-3 py-1 rounded-xl">
               ${price}
             </span>

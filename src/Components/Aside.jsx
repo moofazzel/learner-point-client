@@ -15,8 +15,8 @@ const Aside = ({ topics }) => {
   const { category_id } = topics;
   // const category = useLoaderData();
   return (
-    <aside className="max-w-sm" aria-label="Sidebar ">
-      <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded darkk:bg-gray-800 ">
+    <aside aria-label="Sidebar">
+      <div className="w-full md:w-[13rem] mx-auto overflow-y-auto py-4 px-3 my-10 bg-gray-50 rounded darkk:bg-gray-800 ">
         <ul className="space-y-2">
           {category.map((c) => (
             <li>
@@ -26,6 +26,7 @@ const Aside = ({ topics }) => {
               >
                 <span className="ml-3">{c.name} </span>
               </Link>
+              <hr />
             </li>
           ))}
         </ul>

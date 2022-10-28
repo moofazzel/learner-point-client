@@ -14,16 +14,10 @@ const Courses = () => {
         </h2>
       </div>
 
-      <div className="flex gap-5 mx-10  my-14">
-        
+      <div className="md:flex gap-3 mx-10 my-14">
         {/* Left side bar  */}
         <Aside topics={topics}></Aside>
-
-        {/* <div className="flex flex-wrap gap-4 justify-center">
-          {topics.map((topic) => {
-            return <SingleCourse key={topic.id} topic={topic}></SingleCourse>;
-          })}
-        </div> */}
+        
         <SingleCourse></SingleCourse>
       </div>
     </div>
