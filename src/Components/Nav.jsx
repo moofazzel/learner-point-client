@@ -136,16 +136,28 @@ export const Nav = () => {
         <div className="flex gap-3 items-center">
           {user?.uid ? (
             <>
-              <span>{user?.email}</span>
-              <li className="flex leading-9  ">
-                <NavLink onClick={handleLogout} className="">
-                  Logout
-                </NavLink>
-              </li>
+              <div className="dropdown">
+                <img
+                  tabIndex={0}
+                  className="w-14 h-14 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <span>{user?.displayName}</span>
+                  <li className="flex leading-9  ">
+                    <NavLink onClick={handleLogout} className="">
+                      Logout
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </>
           ) : (
             <ul className="flex gap-3 items-center">
-              <span>{user?.email} </span>
               <li className="flex leading-9  ">
                 <NavLink to={"login"} className="">
                   Login

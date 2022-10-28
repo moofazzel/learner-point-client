@@ -22,7 +22,7 @@ const Home = () => {
           Let your creativity shine and start bighting your future today and
           impress your audiences.
         </p>
-        <Link to={"./courses"}>
+        <Link to={"./category"}>
           <button className="bg-[#0D5EF4] px-5 py-3 rounded-md  text-md font-semibold text-white uppercase ">
             Explore Courses
           </button>
